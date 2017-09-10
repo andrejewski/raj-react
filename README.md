@@ -14,7 +14,7 @@ npm install raj-react
 ```js
 import React from 'react'
 import ReactDom from 'react-dom'
-import program from 'raj-react'
+import {program} from 'raj-react'
 
 const helloProgram = {
   init: [{text: 'Hello world'}],
@@ -32,7 +32,7 @@ ReactDom.render(<App />, root)
 ```
 
 ## Documentation
-`rajReact(Component, props => ({init, update, view})): Component`
+`program(Component, props => ({init, update, view})): Component`
 - `Component`: a React Component class
 - `props`: the React component `props`
 - `init`: the initial state and optional effect
