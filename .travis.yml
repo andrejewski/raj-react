@@ -4,3 +4,11 @@ node_js:
 before_install: npm install -g greenkeeper-lockfile@1
 before_script: greenkeeper-lockfile-update
 after_script: greenkeeper-lockfile-upload
+deploy:
+  provider: npm
+  email: christopher.andrejewski@gmail.com
+  api_key:
+    secure: bKWQvvcU8BI7+RMk1pvdwREbe1znVwjE4juxLTKzl0qpg7PiPMltGi0S/MhyJ8hmSX6FcdfGg03IzWJsYFbNNQ2FGh/4MJEu8CmTEu8fdD0DxyGCaZROv1zJPV3i58TN2UGbJ3NZQwe2PF8qt+4m0SXOvZrAGS8mbKdKLvydWN2j+QM9sKvtXNNHN4VzJcnF+BDQlBLxO7qicw1YeXI5RJ0gTe6PU87frx99pRUyqxi3AB9ejCXr7sojWYslk6ssrZQ5hRTlbFBsBqtYmfkZvMAW9mRsdA7o6WgR+yGOXyooteWF6M+nWY9jGstXiqEiip3Pr8lAyMWdYKjRvdjeVtxlX+NAfIKU5GWWic5bF6FQTTCl9BZQ8x8lwISfWr5G2HbIx+OcCL86CXz0/6mOK7voLyGLesCS1h3+gE2h6PITaQCO2yfyGLKLfxCixS2ik6gRyz5M7zfCdvHZR77JID11+nUObecSv3W6eGFj0ZpDThaudWrfN8m4w2wJlMqfKxCoJB+c49Gl9jsmHgexYv4XIFY7YRrypNz42T3I7+7eNGNDimVDAAtgrEov95sq1Y/a0LDZoAsXfnSYb2BseZTllQXQruV6czxirziU342rr+NLboatJ5IyegTLPe+eP6ItCE9XUiQKLA+lZqf6SDOGc5673jHCOTrpgh6a5lg=
+  on:
+    tags: true
+    repo: andrejewski/raj-react
