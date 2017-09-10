@@ -12,3 +12,4 @@ deploy:
   on:
     tags: true
     repo: andrejewski/raj-react
+  skip_install: true
