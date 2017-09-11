@@ -13,7 +13,7 @@
     "url": "https://github.com/andrejewski/raj-react/issues"
   },
   "dependencies": {
-    "raj": "0.0.7"
+    "raj": "0.0.8"
   },
   "devDependencies": {
     "ava": "^0.22.0",
