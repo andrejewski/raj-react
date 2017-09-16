@@ -4,12 +4,15 @@ function reactProgram (Component, createApp) {
   return class RajProgram extends Component {
     constructor (props) {
       super(props)
-      let initial = true
-      const {init, update, view} = createApp(props)
+      this.makeProgram(props, true)
+    }
+
+    makeProgram (props, initial) {
+      this.killProgram()
+      const {view, ...app} = createApp(props)
       this._view = view
-      program({
-        init,
-        update,
+      this._killProgram = program({
+        ...app,
         view: (state, dispatch) => {
           this._dispatch = dispatch
           if (initial) {
@@ -20,6 +23,23 @@ function reactProgram (Component, createApp) {
           }
         }
       })
+    }
+
+    killProgram () {
+      if (this._killProgram) {
+        this._killProgram()
+        this._killProgram = undefined
+      }
+    }
+
+    componentWillReceiveProps (newProps) {
+      if (newProps !== this.props) {
+        this.makeProgram(newProps, false)
+      }
+    }
+
+    componentWillUnmount () {
+      this.killProgram()
     }
 
     render () {
