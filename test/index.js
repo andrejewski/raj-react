@@ -1,7 +1,10 @@
 import test from 'ava'
 import React from 'react'
 import {program} from '../src'
-import {shallow} from 'enzyme'
+import {shallow, configure} from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
+
+configure({ adapter: new Adapter() })
 
 test('program() should return a React component', t => {
   const Program = program(React.Component, () => ({
@@ -34,10 +37,9 @@ test('program() should update the React component', t => {
 
   d('goodbye')
 
-  {
-    const paragraph = wrapper.find('p')
-    t.is(paragraph.text(), 'goodbye')
-  }
+  wrapper.update() // force setState to flush
+  const paragraph = wrapper.find('p')
+  t.is(paragraph.text(), 'goodbye')
 })
 
 test('program() should init with component props', t => {
