@@ -1,51 +1,28 @@
-const {program} = require('raj/runtime')
+const { program } = require('raj/runtime')
 
-function reactProgram (Component, createApp) {
+exports.program = function reactProgram (Component, createApp) {
   return class RajProgram extends Component {
-    constructor (props) {
-      super(props)
-      this.makeProgram(props, true)
-    }
-
-    makeProgram (props, initial) {
-      this.killProgram()
-      const {view, ...app} = createApp(props)
-      this._view = view
+    componentDidMount () {
+      const app = createApp(this.props)
+      this._view = app.view
       this._killProgram = program({
         ...app,
         view: (state, dispatch) => {
           this._dispatch = dispatch
-          if (initial) {
-            this.state = {state}
-            initial = false
-          } else {
-            this.setState(() => ({state}))
-          }
+          this.setState(() => ({ state }))
         }
       })
     }
 
-    killProgram () {
+    componentWillUnmount () {
       if (this._killProgram) {
         this._killProgram()
         this._killProgram = undefined
       }
     }
 
-    componentWillReceiveProps (newProps) {
-      if (newProps !== this.props) {
-        this.makeProgram(newProps, false)
-      }
-    }
-
-    componentWillUnmount () {
-      this.killProgram()
-    }
-
     render () {
-      return this._view(this.state.state, this._dispatch)
+      return this._view ? this._view(this.state.state, this._dispatch) : null
     }
   }
 }
-
-module.exports = {program: reactProgram}

@@ -24,6 +24,7 @@
     "enzyme": "^3.0.0",
     "enzyme-adapter-react-16": "^1.0.0",
     "fixpack": "^2.3.1",
+    "prettier": "^1.13.5",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-test-renderer": "^16.0.0",
@@ -47,7 +48,7 @@
   },
   "scripts": {
     "build": "babel src --out-dir lib",
-    "lint": "fixpack && standard --fix",
+    "lint": "fixpack && prettier src/**/*.js --write && standard --fix",
     "prepublishOnly": "npm run build",
     "test": "npm run lint && ava"
   }
