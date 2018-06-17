@@ -1,11 +1,11 @@
-const { program } = require('raj/runtime')
+const { runtime } = require('raj')
 
 exports.program = function reactProgram (Component, createApp) {
   return class RajProgram extends Component {
     componentDidMount () {
       const app = createApp(this.props)
       this._view = app.view
-      this._killProgram = program({
+      this._killProgram = runtime({
         ...app,
         view: (state, dispatch) => {
           this._dispatch = dispatch
