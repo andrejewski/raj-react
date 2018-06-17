@@ -1,7 +1,7 @@
 {
   "name": "raj-react",
   "description": "React bindings for Raj",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "author": "Chris Andrejewski <christopher.andrejewski@gmail.com>",
   "babel": {
     "presets": [
