@@ -51,5 +51,6 @@
     "lint": "fixpack && prettier src/**/*.js --write && standard --fix",
     "prepublishOnly": "npm run build",
     "test": "npm run lint && ava"
-  }
+  },
+  "types": "index.d.ts"
 }
