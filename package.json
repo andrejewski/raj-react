@@ -24,7 +24,7 @@
     "enzyme": "^3.0.0",
     "enzyme-adapter-react-16": "^1.0.0",
     "fixpack": "^2.3.1",
-    "prettier": "^1.13.5",
+    "prettier": "^1.19.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-test-renderer": "^16.0.0",
