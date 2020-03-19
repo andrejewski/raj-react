@@ -27,7 +27,7 @@
     "prettier": "^1.13.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-test-renderer": "^16.0.0",
+    "react-test-renderer": "^16.13.1",
     "standard": "^11.0.1"
   },
   "files": [
